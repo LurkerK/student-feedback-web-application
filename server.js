@@ -1,11 +1,12 @@
 const express = require('express')
 const path = require('path')
 
-const indexRouter = require('./routes/index.js')
+// import the routes in routes/index.js
+const indexRouter = require('./routes/index')
 
-const app = express() // creates the web app server
+const app = express()  // creates the web app server
 
-// tell app where thte views (HTML files or templates are)
+// tell app where the views (HTML files or templates are)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')  // use handlebars to generate views
 
