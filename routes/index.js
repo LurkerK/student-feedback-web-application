@@ -9,9 +9,33 @@ router.get('/', function(req, res, next) {  // request, response, next
     res.render('index', { 
         title: 'Feedback Application',
         author: 'Kirk',
-        timePageLoadedAt: new Date()
+        timePageLoadedAt: new Date(),
+
      })
 })    // get request to the home page
 
 
-module.exports = router
+router.get('/feedback-form', function(req, res, next) {
+    res.render('student_feedback_form')
+})
+
+
+router.post('/submit-feedback', function(req, res, next) {
+    // access form data
+    // const formData = req.query  // for a GET request - read the URL query
+    const formData = req.body   // for a POST request
+    console.log(formData)
+
+    // todo - save to a database
+    // automatically email someone when feedback was submitted
+
+    res.render('thank_you', { 
+        name: formData.name,
+        email: formData.email,
+        comments: formData.comments,
+        currentStudent: formData['current-student']
+    })
+})
+
+
+module.exports = router  // this line need to be the very last line
