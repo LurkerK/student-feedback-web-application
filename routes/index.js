@@ -14,12 +14,12 @@ router.get('/', function(req, res, next) {  // request, response, next
      })
 })    // get request to the home page
 
-
+// home page
 router.get('/feedback-form', function(req, res, next) {
     res.render('student_feedback_form')
 })
 
-
+// given feedback display page
 router.post('/submit-feedback', function(req, res, next) {
     // access form data
     // const formData = req.query  // for a GET request - read the URL query
